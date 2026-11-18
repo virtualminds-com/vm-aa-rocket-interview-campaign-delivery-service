@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: Campaign Delivery API
+  version: 1.4.0
+  description: |
+    Internal API exposing daily delivery statistics per campaign.
+
+    Current consumers:
+      - Internal reporting dashboard (reads `GET /campaigns/{campaignId}/delivery`)
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: Delivery
+    description: Campaign delivery statistics
+
+paths:
+  /campaigns:
+    get:
+      tags: [Delivery]
+      operationId: listCampaigns
+      summary: List all campaigns
+      responses:
+        '200':
+          description: All known campaigns
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CampaignSummary'
+
+  /campaigns/{campaignId}/delivery:
+    get:
+      tags: [Delivery]
+      operationId: getCampaignDelivery
+      summary: Daily delivery report for one campaign
+      parameters:
+        - name: campaignId
+          in: path
+          required: true
+          schema:
+            type: string
+            example: cmp-1001
+      responses:
+        '200':
+          description: Delivery report, days ordered by date ascending
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryReport'
+        '404':
+          description: Campaign not found
+
+components:
+  schemas:
+    CampaignSummary:
+      type: object
+      required: [campaignId, name, advertiser]
+      properties:
+        campaignId:
+          type: string
+          example: cmp-1001
+        name:
+          type: string
+          example: Autumn Sneakers Launch
+        advertiser:
+          type: string
+          example: Stride Footwear
+
+    DeliveryReport:
+      type: object
+      required: [campaignId, campaignName, totalImpressions, totalClicks, totalSpend, days]
+      properties:
+        campaignId:
+          type: string
+          example: cmp-1001
+        campaignName:
+          type: string
+          example: Autumn Sneakers Launch
+        totalImpressions:
+          type: integer
+          format: int64
+          example: 353750
+        totalClicks:
+          type: integer
+          format: int64
+          example: 2507
+        totalSpend:
+          type: number
+          format: double
+          description: Total spend in EUR.
+          example: 1217.45
+        days:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryDay'
+
+    DeliveryDay:
+      type: object
+      required: [date, impressions, clicks, spend]
+      properties:
+        date:
+          type: string
+          description: Delivery date in the dashboard display format (dd/MM/yyyy).
+          example: 26/10/2026
+        impressions:
+          type: integer
+          format: int64
+          example: 120000
+        clicks:
+          type: integer
+          format: int64
+          example: 840
+        spend:
+          type: number
+          format: double
+          description: Spend for the day in EUR.
+          example: 412.5
+

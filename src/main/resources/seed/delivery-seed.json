@@ -1,0 +1,20 @@
+{
+  "campaigns": [
+    { "id": "cmp-1001", "name": "Autumn Sneakers Launch",     "advertiser": "Stride Footwear",     "currency": "EUR" },
+    { "id": "cmp-1002", "name": "Black Friday Electronics",   "advertiser": "Voltix Retail",       "currency": "EUR" },
+    { "id": "cmp-1003", "name": "Programmatic CTV Awareness", "advertiser": "Northwind Streaming", "currency": "USD" },
+    { "id": "cmp-1004", "name": "Holiday Travel Retargeting", "advertiser": "Sol y Mar Viajes",    "currency": "EUR" }
+  ],
+  "delivery": [
+    { "campaignId": "cmp-1001", "date": "2026-10-26", "impressions": 120000, "clicks": 840,  "spend": 412.50 },
+    { "campaignId": "cmp-1001", "date": "2026-10-27", "impressions": 135500, "clicks": 1012, "spend": 466.85 },
+    { "campaignId": "cmp-1001", "date": "2026-10-28", "impressions": 98250,  "clicks": 655,  "spend": 338.10 },
+
+    { "campaignId": "cmp-1002", "date": "2026-10-28", "impressions": 310400, "clicks": 3725, "spend": 2310.75 },
+    { "campaignId": "cmp-1002", "date": "2026-10-27", "impressions": 250000, "clicks": 3100, "spend": 1890.00 },
+
+    { "campaignId": "cmp-1003", "date": "2026-10-26", "impressions": 45000,  "clicks": 90,   "spend": 1534.4567885 },
+    { "campaignId": "cmp-1003", "date": "2026-10-27", "impressions": 51200,  "clicks": 102,  "spend": 1750.0000004 },
+    { "campaignId": "cmp-1003", "date": "2026-10-28", "impressions": 47800,  "clicks": 95,   "spend": 2067.3455415 }
+  ]
+}

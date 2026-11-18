@@ -1,0 +1,12 @@
+{
+  "campaignId": "cmp-1001",
+  "campaignName": "Autumn Sneakers Launch",
+  "totalImpressions": 353750,
+  "totalClicks": 2507,
+  "totalSpend": 1217.45,
+  "days": [
+    { "date": "26/10/2026", "impressions": 120000, "clicks": 840,  "spend": 412.5 },
+    { "date": "27/10/2026", "impressions": 135500, "clicks": 1012, "spend": 466.85 },
+    { "date": "28/10/2026", "impressions": 98250,  "clicks": 655,  "spend": 338.1 }
+  ]
+}
